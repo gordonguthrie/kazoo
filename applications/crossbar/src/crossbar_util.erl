@@ -1301,7 +1301,6 @@ update_descendants_count(AccountId, JObj, NewCount) ->
         {'error', _E} -> 'error';
         {'ok', NewDoc} ->
             _ = replicate_account_definition(NewDoc),
-            io:format("updated descendant count for ~s~n", [AccountId]),
             'ok'
     end.
 
