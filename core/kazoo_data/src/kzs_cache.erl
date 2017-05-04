@@ -201,7 +201,7 @@ expires_policy_value(DbName, CacheValue) ->
 expires_policy_value(<<"system_config">>, _, _) -> 'infinity';
 expires_policy_value(<<"system_data">>, _, _) -> 'infinity';
 expires_policy_value(DbName, Classification, Type) ->
-    CachePolicy = kapps_config:get(?CONFIG_CAT, <<"cache_policy">>, ?DEFAULT_CACHING_POLICY),
+    CachePolicy = kapps_config:get_json(?CONFIG_CAT, <<"cache_policy">>, ?DEFAULT_CACHING_POLICY),
     case kz_json:get_first_defined([[DbName, Type]
                                    ,[DbName, <<"any">>]
                                    ,[Classification, Type]
